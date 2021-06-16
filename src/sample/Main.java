@@ -22,24 +22,12 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        Label selectedlbl = new Label();
-
-        RadioButton javabtn = new RadioButton("Java");
-        RadioButton jsbtn = new RadioButton("JavaScript");
-        RadioButton csharpbtn = new RadioButton("C#");
-
-        ToggleGroup group = new ToggleGroup();
-        javabtn.setToggleGroup(group);
-        jsbtn.setToggleGroup(group);
-        csharpbtn.setToggleGroup(group);
-
-        javabtn.setOnAction(event -> selectedlbl.setText("Selected: Java"));
-        jsbtn.setOnAction(event -> selectedlbl.setText("Selected: JavaScript"));
-        csharpbtn.setOnAction(event -> selectedlbl.setText("Selected: C#"));
-
-        FlowPane root = new FlowPane(Orientation.VERTICAL, 20,10);
-        root.getChildren().addAll(javabtn,jsbtn,csharpbtn);
-        root.setPadding(new Insets(10));
+        Label lbl = new Label();
+        TextField textField = new TextField();
+        textField.setPrefColumnCount(11);
+        Button btn = new Button("Click");
+        btn.setOnAction(event -> lbl.setText("input: " + textField.getText()));
+        FlowPane root = new FlowPane(Orientation.VERTICAL, 10 , 10, textField,btn,lbl);
         Scene scene = new Scene(root, 250,200);
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
