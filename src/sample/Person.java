@@ -13,5 +13,5 @@ public class Person {
     public void setName(String value){ name.set(value);}
 
     public int getAge(){ return age.get();}
-    public void setAge(){ return age.set();}
+    public void setAge(int value){ age.set(value);}
 }
