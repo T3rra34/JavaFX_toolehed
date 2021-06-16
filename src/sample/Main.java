@@ -19,9 +19,9 @@ public class Main extends Application {
     }
     
     @Override
-    public void start(Stage Stage) {
+    public void start(Stage Stage) throws Exception {
 
-        Group root = new Group();
+        Group root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root);
         Stage.setScene(scene);
         Stage.setTitle("Hello JavaFX");
@@ -38,6 +38,8 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 btn.setText("You've clicked!");
+                
+
             }
         });
         }
