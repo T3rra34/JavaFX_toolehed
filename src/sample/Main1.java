@@ -1,23 +1,18 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Orientation;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.Priority;
+import javafx.scene.layout.BorderPane;
+import javafx.geometry.Pos;
+import java.util.Stack;
 
 public class Main1 extends Application {
     public static void main(String[] args) {
@@ -26,13 +21,19 @@ public class Main1 extends Application {
 
     @Override
     public void start(Stage stage) {
-        Button btn = new Button("Hello");
-        BorderPane root = new BorderPane(btn);
+        Label headerlbl = new Label("Press the login button");
+        StackPane.setAlignment(headerlbl, Pos.TOP_CENTER);
+        Label statuslbl = new Label("Start screen");
+        StackPane.setAlignment(statuslbl, Pos.BOTTOM_CENTER);
+        Button loginbtn = new Button("Login");
 
-        Scene scene = new Scene(root,300,150);
+        StackPane root = new StackPane(headerlbl,statuslbl,loginbtn);
+
+        Scene scene = new Scene(root , 300 ,150);
         stage.setScene(scene);
 
-        stage.setTitle("BorderPane in JavaFX");
+        stage.setTitle("Stackpane in JavaFX");
+
         stage.show();
     }
 }
