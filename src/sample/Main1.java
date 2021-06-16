@@ -14,7 +14,7 @@ import javafx.scene.Group;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 public class Main1 extends Application {
     public static void main(String[] args) {
@@ -32,18 +32,11 @@ public class Main1 extends Application {
         Label lbl5 = new Label("hello");
         Label lbl6 = new Label("hello");
 
-        FlowPane root = new FlowPane();
-        root.setVgap(18);
-        root.setHgap(15);
-        root.setOrientation(Orientation.VERTICAL);
-        root.getChildren().addAll(lbl ,lbl1, lbl2, lbl3, lbl4, lbl5, lbl6);
-        Scene scene = new Scene(root, 300, 150);
-
-
+        HBox root = new HBox(10, lbl,lbl1,lbl2,lbl3,lbl4,lbl5,lbl6);
+        Scene scene = new Scene(root, 500, 150);
         Stage.setScene(scene);
-        Stage.setTitle("Flowpane in JavaFX");
-        Stage.setWidth(300);
-        Stage.setHeight(200);
+        Stage.setTitle("HBox in JavaFX");
+
         Stage.show();
     }
 }

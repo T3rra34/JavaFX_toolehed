@@ -30,7 +30,7 @@ public class Main extends Application {
 
         FlowPane root = new FlowPane(10 , 10 , label1, label2);
         root.setAlignment(Pos.CENTER);
-        scene scene = new Scene(root, 300 , 150);
+        Scene scene = new Scene(root, 300 , 150);
         stage.setTitle("Flowpane in JavaFX");
         stage.show();
     }
