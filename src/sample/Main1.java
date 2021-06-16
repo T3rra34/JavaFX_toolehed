@@ -32,7 +32,7 @@ public class Main1 extends Application {
         VBox vbox = new VBox(15);
 
         VBox.setVgrow(okbtn, Priority.ALWAYS);
-        cancelBtn.setMaxHeight(Double.MAX_VALUE);
+        cancelbtn.setMaxHeight(Double.MAX_VALUE);
 
         vbox.getChildren().addAll(lbl, okbtn, cancelbtn);
 
