@@ -12,6 +12,7 @@ import javafx.scene.Group;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -27,9 +28,6 @@ public class Main extends Application {
         Stage.setTitle("Hello JavaFX");
         Stage.setWidth(250);
         Stage.setHeight(250);
-        Stage.show();
-
-
 
         Button btn = new Button();
         btn.setText("Click");
@@ -38,9 +36,8 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 btn.setText("You've clicked!");
-                
 
-            }
-        });
-        }
+                Stage.show();
+            }});
     }
+}
