@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class Main1 extends Application {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class Main1 extends Application {
     }
 
     @Override
-    public void start(Stage Stage) {
+    public void start(Stage stage) {
 
         Label lbl = new Label("hello");
         Label lbl1 = new Label("hello");
@@ -32,11 +33,11 @@ public class Main1 extends Application {
         Label lbl5 = new Label("hello");
         Label lbl6 = new Label("hello");
 
-        HBox root = new HBox(10, lbl,lbl1,lbl2,lbl3,lbl4,lbl5,lbl6);
+        VBox root = new VBox(10, lbl,lbl1,lbl2,lbl3,lbl4,lbl5,lbl6);
         Scene scene = new Scene(root, 500, 150);
-        Stage.setScene(scene);
-        Stage.setTitle("HBox in JavaFX");
+        stage.setScene(scene);
+        stage.setTitle("VBox in JavaFX");
 
-        Stage.show();
+        stage.show();
     }
 }
