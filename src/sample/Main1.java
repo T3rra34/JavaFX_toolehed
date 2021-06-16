@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,8 +31,7 @@ public class Main1 extends Application {
         Label lbl5 = new Label("hello");
         Label lbl6 = new Label("hello");
         Button btn = new Button("Click");
-        FlowPane root = new FlowPane();
-        root.getChildren().addAll(lbl, lbl1, lbl2,lbl3,lbl4, lbl5,lbl6);
+        FlowPane root = new FlowPane(Orientation.VERTICAL, 10, 10, lbl1, lbl2,lbl3,lbl4, lbl5,lbl6);
         Scene scene = new Scene(root, 10, 10);
         Stage.setScene(scene);
         Stage.setTitle("Flowpane in JavaFX");
