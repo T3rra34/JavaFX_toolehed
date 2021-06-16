@@ -22,19 +22,24 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        Label headerlbl = new Label("Scrollpane");
-        Label textlbl = new Label("Lorem dmwaidmsimdiwmdiamwdim \n" +
-                "Industry. odwmaodmosamwodmaomdwomadomawdowmaodmao \n" +
-                "text ever dwoa,dowa,domawdomawomdboawmdobawod...");
-        ScrollPane scrollPane = new ScrollPane(textlbl);
-        scrollPane.setPrefViewportHeight(250);
-        scrollPane.setPrefViewportWidth(200);
+        Label lbl = new Label("Value");
 
-        FlowPane root = new FlowPane(Orientation.VERTICAL,10,10,headerlbl,scrollPane);
-        Scene scene = new Scene(root, 300, 250);
+        Slider slider = new Slider(0.0,20.0,10.0);
+        slider.setShowTickMarks(true);
+        slider.setShowTickLabels(true);
+        slider.setBlockIncrement(2.0);
+        slider.setMajorTickUnit(5.0);
+        slider.setMinorTickCount(4);
+        slider.setSnapToTicks(true);
+
+        Button btn = new Button("Click");
+        btn.setOnAction(event -> lbl.setText("Slider Value: " + slider.getValue()));
+
+        FlowPane root = new FlowPane(Orientation.VERTICAL,10,10,slider,lbl,btn);
+        Scene scene = new Scene(root, 300,250);
 
         stage.setScene(scene);
-        stage.setTitle("Hello JavaFX");
+        stage.setTitle("Slider in JavaFX");
         stage.show();
 
     }
