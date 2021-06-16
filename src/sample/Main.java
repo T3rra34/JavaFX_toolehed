@@ -2,6 +2,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
@@ -13,6 +14,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Insets;
 
+import java.util.concurrent.Flow;
+
 public class Main extends Application {
     int clicks = 0;
     public static void main(String[] args) {
@@ -21,22 +24,23 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        CheckBox java = new CheckBox("Java");
-        java.setSelected(true);
+        ToggleButton lightbtn = new ToggleButton("Light");
+        Label statelbl = new Label();
+        lightbtn.setOnAction(actionEvent -> {
+            if (lightbtn.isSelected()) {
+                statelbl.setText("Light on!");
+            } else {
+                statelbl.setText("Lights off..");
+            }
+            });
 
-        CheckBox javaScript = new CheckBox("JavaScript");
-        javaScript.setAllowIndeterminate(true);
+            FlowPane root = new FlowPane(10,10 );
+            root.getChildren().addAll(lightbtn,statelbl);
+            root.setPadding(new Insets(10));
+            Scene scene = new Scene(root, 250, 200);
+            stage.setScene(scene);
+            stage.setTitle("Hello JavaFX");
+            stage.show();
 
-        CheckBox csharp = new CheckBox("C#");
-        csharp.setAllowIndeterminate(true);
-        csharp.setIndeterminate(true);
-
-        FlowPane root = new FlowPane(Orientation.VERTICAL,0,10);
-        root.getChildren().addAll(java,javaScript,csharp);
-        root.setPadding(new Insets(10));
-        Scene scene = new Scene(root, 250, 200);
-        stage.setScene(scene);
-        stage.setTitle("Hello JavaFX");
-        stage.show();
     }
 }
