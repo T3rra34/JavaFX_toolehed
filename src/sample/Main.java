@@ -1,12 +1,17 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -23,5 +28,17 @@ public class Main extends Application {
         Stage.setWidth(250);
         Stage.setHeight(250);
         Stage.show();
+
+
+
+        Button btn = new Button();
+        btn.setText("Click");
+
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                btn.setText("You've clicked!");
+            }
+        });
+        }
     }
-}
