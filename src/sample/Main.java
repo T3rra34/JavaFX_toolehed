@@ -14,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.scene.control.ComboBox;
 
 public class Main extends Application {
     int clicks = 0;
@@ -24,11 +25,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         ObservableList<String> langs = FXCollections.observableArrayList("Java", "JavaScript", "C#", "Python");
-        ListView<String> langsListView = new ListView<String>(langs);
-        FlowPane root = new FlowPane(langsListView);
+        ComboBox<String> langsComboBox = new ComboBox<String>(langs);
+        langsComboBox.setValue("Java");
+        Label lbl = new Label();
+        FlowPane root = new FlowPane(10,10,langsComboBox, lbl);
         Scene scene = new Scene(root, 250,200);
         stage.setScene(scene);
-        stage.setTitle("ListView in JavaFX");
+        stage.setTitle("ComboBox in JavaFX");
         stage.show();
 
     }
