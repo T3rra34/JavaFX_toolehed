@@ -12,7 +12,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
-import java.util.concurrent.Flow;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 public class Main extends Application {
     int clicks = 0;
@@ -22,24 +23,12 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        Label lbl = new Label("Value");
-
-        Slider slider = new Slider(0.0,20.0,10.0);
-        slider.setShowTickMarks(true);
-        slider.setShowTickLabels(true);
-        slider.setBlockIncrement(2.0);
-        slider.setMajorTickUnit(5.0);
-        slider.setMinorTickCount(4);
-        slider.setSnapToTicks(true);
-
-        Button btn = new Button("Click");
-        btn.setOnAction(event -> lbl.setText("Slider Value: " + slider.getValue()));
-
-        FlowPane root = new FlowPane(Orientation.VERTICAL,10,10,slider,lbl,btn);
-        Scene scene = new Scene(root, 300,250);
-
+        ObservableList<String> langs = FXCollections.observableArrayList("Java", "JavaScript", "C#", "Python");
+        ListView<String> langsListView = new ListView<String>(langs);
+        FlowPane root = new FlowPane(langsListView);
+        Scene scene = new Scene(root, 250,200);
         stage.setScene(scene);
-        stage.setTitle("Slider in JavaFX");
+        stage.setTitle("ListView in JavaFX");
         stage.show();
 
     }
