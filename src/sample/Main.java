@@ -15,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ChoiceBox;
 
 public class Main extends Application {
     int clicks = 0;
@@ -25,11 +26,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         ObservableList<String> langs = FXCollections.observableArrayList("Java", "JavaScript", "C#", "Python");
-        ComboBox<String> langsComboBox = new ComboBox<String>(langs);
-        langsComboBox.setValue("Java");
+        ChoiceBox<String> langsChoiceBox = new ChoiceBox<String>(langs);
+        langsChoiceBox.setValue("Java");
         Label lbl = new Label();
-        FlowPane root = new FlowPane(10,10,langsComboBox, lbl);
-        Scene scene = new Scene(root, 250,200);
+        langsChoiceBox(event -> lbl.setText(langsChoiceBox.getValue()));
+        FlowPane root = new FlowPane(10,10,langsChoiceBox,lbl);
+        Scene scene = new Scene(root,300,250);
         stage.setScene(scene);
         stage.setTitle("ComboBox in JavaFX");
         stage.show();
