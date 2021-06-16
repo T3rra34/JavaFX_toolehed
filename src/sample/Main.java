@@ -33,7 +33,7 @@ public class Main extends Application {
         FlowPane root = new FlowPane(10,10,langsChoiceBox,lbl);
         Scene scene = new Scene(root,300,250);
         stage.setScene(scene);
-        stage.setTitle("ComboBox in JavaFX");
+        stage.setTitle("ChoiceBox in JavaFX");
         stage.show();
 
     }
