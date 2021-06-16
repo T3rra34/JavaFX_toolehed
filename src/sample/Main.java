@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -29,6 +30,10 @@ public class Main extends Application {
         HBox hbox = new HBox();
         Button btn1 = new Button("Add");
         Button btn2 = new Button("Remove");
+        HBox.setHgrow(btn1, Priority.ALWAYS);
+        HBox.setHgrow(btn2, Priority.ALWAYS);
+        btn1.setMaxWidth(Double.MAX_VALUE);
+        btn2.setMaxWidth(Double.MAX_VALUE);
         hbox.getChildren().addAll(btn1, btn2);
         Scene scene = new Scene(hbox, 300 , 150);
         stage.setScene(scene);
