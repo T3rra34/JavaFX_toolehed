@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.Priority;
 
 public class Main1 extends Application {
     public static void main(String[] args) {
@@ -24,18 +25,20 @@ public class Main1 extends Application {
 
     @Override
     public void start(Stage stage) {
+        Button okbtn = new Button("OK");
+        Button cancelbtn = new Button("Cancel");
+        Label lbl = new Label("Select");
 
-        Label lbl = new Label("hello");
-        Label lbl1 = new Label("hello");
-        Label lbl2 = new Label("hello");
-        Label lbl3 = new Label("hello");
-        Label lbl4 = new Label("hello");
-        Label lbl5 = new Label("hello");
-        Label lbl6 = new Label("hello");
+        VBox vbox = new VBox(15);
 
-        VBox root = new VBox(10, lbl,lbl1,lbl2,lbl3,lbl4,lbl5,lbl6);
-        Scene scene = new Scene(root, 500, 150);
+        VBox.setVgrow(okbtn, Priority.ALWAYS);
+        cancelBtn.setMaxHeight(Double.MAX_VALUE);
+
+        vbox.getChildren().addAll(lbl, okbtn, cancelbtn);
+
+        Scene scene = new Scene(vbox, 300,150);
         stage.setScene(scene);
+
         stage.setTitle("VBox in JavaFX");
 
         stage.show();
