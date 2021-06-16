@@ -23,6 +23,7 @@ public class Main1 extends Application {
 
     @Override
     public void start(Stage Stage) {
+
         Label lbl = new Label("hello");
         Label lbl1 = new Label("hello");
         Label lbl2 = new Label("hello");
@@ -30,9 +31,15 @@ public class Main1 extends Application {
         Label lbl4 = new Label("hello");
         Label lbl5 = new Label("hello");
         Label lbl6 = new Label("hello");
-        Button btn = new Button("Click");
-        FlowPane root = new FlowPane(Orientation.VERTICAL, 10, 10, lbl1, lbl2,lbl3,lbl4, lbl5,lbl6);
-        Scene scene = new Scene(root, 10, 10);
+
+        FlowPane root = new FlowPane();
+        root.setVgap(18);
+        root.setHgap(15);
+        root.setOrientation(Orientation.VERTICAL);
+        root.getChildren().addAll(lbl ,lbl1, lbl2, lbl3, lbl4, lbl5, lbl6);
+        Scene scene = new Scene(root, 300, 150);
+
+
         Stage.setScene(scene);
         Stage.setTitle("Flowpane in JavaFX");
         Stage.setWidth(300);
