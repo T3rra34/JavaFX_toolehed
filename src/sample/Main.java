@@ -1,14 +1,12 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ToggleButton;
+import javafx.event.Event;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
@@ -24,23 +22,28 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        ToggleButton lightbtn = new ToggleButton("Light");
-        Label statelbl = new Label();
-        lightbtn.setOnAction(actionEvent -> {
-            if (lightbtn.isSelected()) {
-                statelbl.setText("Light on!");
-            } else {
-                statelbl.setText("Lights off..");
-            }
-            });
+        Label selectedlbl = new Label();
 
-            FlowPane root = new FlowPane(10,10 );
-            root.getChildren().addAll(lightbtn,statelbl);
-            root.setPadding(new Insets(10));
-            Scene scene = new Scene(root, 250, 200);
-            stage.setScene(scene);
-            stage.setTitle("Hello JavaFX");
-            stage.show();
+        RadioButton javabtn = new RadioButton("Java");
+        RadioButton jsbtn = new RadioButton("JavaScript");
+        RadioButton csharpbtn = new RadioButton("C#");
+
+        ToggleGroup group = new ToggleGroup();
+        javabtn.setToggleGroup(group);
+        jsbtn.setToggleGroup(group);
+        csharpbtn.setToggleGroup(group);
+
+        javabtn.setOnAction(event -> selectedlbl.setText("Selected: Java"));
+        jsbtn.setOnAction(event -> selectedlbl.setText("Selected: JavaScript"));
+        csharpbtn.setOnAction(event -> selectedlbl.setText("Selected: C#"));
+
+        FlowPane root = new FlowPane(Orientation.VERTICAL, 20,10);
+        root.getChildren().addAll(javabtn,jsbtn,csharpbtn);
+        root.setPadding(new Insets(10));
+        Scene scene = new Scene(root, 250,200);
+        stage.setScene(scene);
+        stage.setTitle("Hello JavaFX");
+        stage.show();
 
     }
 }
