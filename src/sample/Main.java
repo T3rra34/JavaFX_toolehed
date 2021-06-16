@@ -8,15 +8,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     
-
-    public void start(Stage stage) {
-    init(stage);
-    stop(stage);
-    }
-
-    private void stop(Stage stage) {
-    }
-
-    private void init(Stage stage) {
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Hello JavaFX");
+        primaryStage.setWidth(250);
+        primaryStage.setHeight(250);
+        primaryStage.show();
     }
 }
