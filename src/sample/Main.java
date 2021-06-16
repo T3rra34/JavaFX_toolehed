@@ -11,7 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.geometry.Insets;
-
+import javafx.scene.control.ScrollPane;
 import java.util.concurrent.Flow;
 
 public class Main extends Application {
@@ -22,13 +22,17 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) {
-        Label lbl = new Label();
-        TextField textField = new TextField();
-        textField.setPrefColumnCount(11);
-        Button btn = new Button("Click");
-        btn.setOnAction(event -> lbl.setText("input: " + textField.getText()));
-        FlowPane root = new FlowPane(Orientation.VERTICAL, 10 , 10, textField,btn,lbl);
-        Scene scene = new Scene(root, 250,200);
+        Label headerlbl = new Label("Scrollpane");
+        Label textlbl = new Label("Lorem dmwaidmsimdiwmdiamwdim \n" +
+                "Industry. odwmaodmosamwodmaomdwomadomawdowmaodmao \n" +
+                "text ever dwoa,dowa,domawdomawomdboawmdobawod...");
+        ScrollPane scrollPane = new ScrollPane(textlbl);
+        scrollPane.setPrefViewportHeight(250);
+        scrollPane.setPrefViewportWidth(200);
+
+        FlowPane root = new FlowPane(Orientation.VERTICAL,10,10,headerlbl,scrollPane);
+        Scene scene = new Scene(root, 300, 250);
+
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
         stage.show();
