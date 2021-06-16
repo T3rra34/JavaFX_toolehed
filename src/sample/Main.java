@@ -29,7 +29,7 @@ public class Main extends Application {
         ChoiceBox<String> langsChoiceBox = new ChoiceBox<String>(langs);
         langsChoiceBox.setValue("Java");
         Label lbl = new Label();
-        langsChoiceBox(event -> lbl.setText(langsChoiceBox.getValue()));
+        langsChoiceBox.setOnAction(event -> lbl.setText(langsChoiceBox.getValue()));
         FlowPane root = new FlowPane(10,10,langsChoiceBox,lbl);
         Scene scene = new Scene(root,300,250);
         stage.setScene(scene);
