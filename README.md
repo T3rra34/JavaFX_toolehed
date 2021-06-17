@@ -10,9 +10,11 @@ This application need atleast Java 11 and JavaFX 11.0.2 to work.
 
 ### Installing and running
 
-1. Download the entire repository.
-2.Compile the code - use an IDE, like Intellij or do it manually
-3.Run the program
+    1. Download the entire repository.
+
+    2.Compile the code - use an IDE, like Intellij or do it manually
+
+    3.Run the program
    
 
 ## **Built With**
